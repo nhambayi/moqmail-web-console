@@ -22,7 +22,7 @@
 
     <!-- Add your site or application content here -->
     <div class="header" ng-controller="HomeController">
-      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container-fluid">
           <div class="navbar-header">
 
@@ -33,7 +33,7 @@
               <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="#/"><i class="fa fa-github"></i> Moq Mail</a>
+            <a class="navbar-brand" href="#/"><i class="fa fa-paper-plane"></i> Moq Mail</a>
           </div>
            
           <div ng-controller="userController" class="collapse navbar-collapse" id="js-navbar-collapse">
@@ -46,7 +46,7 @@
               <li ng-show="isLoggedIn"><a href="#/dashboard">Inbox <span class="badge">42</span></a></li>
               <li ng-show="isLoggedIn"><a href="#/dashboard">Settings</a></li>
               <li ng-show="isLoggedIn" class="dropdown">
-                <a href="#/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{auth.profile.nickname}} <span class="caret"></span></a>
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{auth.profile.nickname}} <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="#/">Profile</a></li>
                     <li><a href="#/">Account</a></li>
@@ -61,18 +61,9 @@
         </div>
       </div>
     </div>
-
     <div class="container-fluid">
-    <div ng-view=""></div>
+      <div class="page-header" ng-view=""></div>
     </div>
-
-    <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span>Alphio Inc 2015</p>
-      </div>
-    </div>
-
-
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
        !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
