@@ -452,6 +452,18 @@ module.exports = function (grunt) {
         'svgmin'
       ]
     },
+    
+    //Create Web Deploy  Package
+    //===========MSDEPLOY===========
+    mswebdeploy : {
+      build :{
+      options : {
+          'dest'    : 'deploy/',
+          'source'  : 'dist',
+          'package' : 'webdeploy.zip',
+          }
+      }
+    },
 
     // Test settings
     karma: {
@@ -507,7 +519,8 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'mswebdeploy'
   ]);
 
   grunt.registerTask('default', [
