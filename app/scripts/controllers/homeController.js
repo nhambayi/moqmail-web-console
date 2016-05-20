@@ -9,9 +9,9 @@
  * Controller of the vorboteApp
  */
 angular.module('vorboteApp')
-  .controller('HomeController', ['$scope', '$http', 'auth', 'store', '$location',
+  .controller('HomeController', ['$scope', '$http', 'store', '$location',
 function ($scope, $http, auth, store, $location) {
   
-
+  
 }]);
 })();

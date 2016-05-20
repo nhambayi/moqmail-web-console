@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="message"></div>
+    <div><a href="index.html">Go Back To Home Page</a></div>
+    <script src="bower_components/oidc-token-manager/dist/oidc-token-manager.js"></script>
+    <script>
+        var config = {
+            authority: "https://alphio-dev1-identity-server.azurewebsites.net/",
+            client_id: "moqmail",
+            redirect_uri: window.location.protocol + "//" + window.location.host + "/callback.html",
+            post_logout_redirect_uri: window.location.protocol + "//" + window.location.host + "/index.html",
+            response_type: "id_token",
+            scope: "openid profile email",
+
+            // silent renew will get a new access_token via an iframe 
+            // just prior to the old access_token expiring (60 seconds prior)
+            silent_redirect_uri: window.location.protocol + "//" + window.location.host + "/silent_renew.html",
+            silent_renew: true,
+
+            // this will allow all the OIDC protocol claims to vbe visible in the window. normally a client app 
+            // wouldn't care about them or want them taking up space
+            filter_protocol_claims: false,
+
+            // use session storage
+            store: window.localStorage 
+        };
+        
+        var mgr = new OidcTokenManager(config);
+        mgr.processTokenCallbackAsync().then(function () {
+            console.log("Successfully Obtained Token", mgr.access_token);
+            
+            window.location.replace("/index.html");
+        }, function (error) {
+            //window.location.replace("/error.html");
+        });
+    </script>
+</body>
+
+</html>

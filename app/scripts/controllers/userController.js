@@ -9,33 +9,21 @@
  * Controller of the vorboteApp
  */
 angular.module('vorboteApp')
-  .controller('userController', ['$scope', '$http', 'auth', 'store', '$location',
-function ($scope, $http, auth, store, $location) {
+  .controller('userController', ['$scope', '$http', 'userProfileService', 'store', '$location',
+function ($scope, $http, userProfileService, store, $location) {
   
   $scope.login = function () {
-    auth.signin({}, function (profile, token) {
-      // Success callback
-      store.set('profile', profile);
-      store.set('token', token);
-      $location.path('/dashboard');
-      $scope.isLoggedIn = true;
-    }, function () {
-      // Error callback
-    });
+    userProfileService.login();
   }
   
     $scope.logout = function() {
-    auth.signout();
-    store.remove('profile');
-    store.remove('token');
+    userProfileService.signOut();
     $scope.isLoggedIn = false;
   }
   
-  $scope.isLoggedIn = true;
-  
-  $scope.auth = auth;
-  
-  
+  $scope.isLoggedIn = userProfileService.isAuthenticated();
+  $scope.profile = userProfileService.getProfile();
+    
 
 }]);
 })();

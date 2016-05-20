@@ -12,7 +12,7 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
     <!-- endbuild -->
   </head>
   <body ng-app="vorboteApp">
@@ -46,7 +46,7 @@
               <li ng-show="isLoggedIn"><a href="#/dashboard">Inbox <span class="badge">42</span></a></li>
               <li ng-show="isLoggedIn"><a href="#/dashboard">Settings</a></li>
               <li ng-show="isLoggedIn" class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{auth.profile.nickname}} <span class="caret"></span></a>
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{profile.name}} <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="#/">Profile</a></li>
                     <li><a href="#/">Account</a></li>
@@ -89,16 +89,13 @@
     <script src="bower_components/auth0.js/build/auth0.js"></script>
     <script src="bower_components/auth0-lock/build/auth0-lock.js"></script>
     <script src="bower_components/auth0-angular/build/auth0-angular.js"></script>
+    <script src="bower_components/oidc-token-manager/dist/oidc-token-manager.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-        <script src="//code.angularjs.org/1.2.16/angular-cookies.min.js"></script>
-        <script src="//cdn.auth0.com/js/lock-7.9.min.js"></script>
-        <script type="text/javascript" src="//cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js"></script>
-        <script type="text/javascript" src="//cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
-        <script src="//cdn.auth0.com/w2/auth0-angular-4.js"> </script>
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/services/userProfileService.js"></scripts>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/dashboardController.js"></script>
         <script src="scripts/controllers/HomeController.js"></script>

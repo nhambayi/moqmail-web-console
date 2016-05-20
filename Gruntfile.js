@@ -458,7 +458,7 @@ module.exports = function (grunt) {
     mswebdeploy : {
       build :{
       options : {
-          'dest'    : 'deploy/',
+          'dest'    : 'app/',
           'source'  : 'dist',
           'package' : 'webdeploy.zip',
           }
